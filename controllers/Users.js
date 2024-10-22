@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import connection from '../config/Database.js';
 import emailValidator from 'deep-email-validator';
