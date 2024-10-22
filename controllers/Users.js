@@ -1,10 +1,9 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import connection from '../config/Database.js';
-import Joi from 'joi';
 import emailValidator from 'deep-email-validator';
 import path from "path";
-// const emailValidator = require('deep-email-validator');
+
 async function isEmailValid(email) {
     return emailValidator.validate(email)
 }
@@ -321,23 +320,4 @@ export const uploadImageProfile = async(req, res) => {
     // } catch (error) {
     //     res.json({msg:error});
     // }
-}
- 
-export const Logout = async(req, res) => {
-    const refreshToken = req.cookies.refreshToken;
-    if(!refreshToken) return res.sendStatus(204);
-    const user = await Users.findAll({
-        where:{
-            refresh_token: refreshToken
-        }
-    });
-    if(!user[0]) return res.sendStatus(204);
-    const userId = user[0].id;
-    await Users.update({refresh_token: null},{
-        where:{
-            id: userId
-        }
-    });
-    res.clearCookie('refreshToken');
-    return res.sendStatus(200);
 }

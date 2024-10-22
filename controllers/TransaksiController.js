@@ -63,14 +63,14 @@ export const historyTransaksi = async(req, res) => {
     try {
         const { offset,limit } = req.body;
 
-        var transaction = '';
+        var trans = '';
         
         if(offset && limit)
         {
-            transaction = await connection.promise().query(`SELECT invoice_number,transaction_type,description,total_amount,created_at FROM transaction where email = ? order by created_at desc limit ? offset ? `,[req.email,limit,offset]); 
+            trans = await connection.promise().query(`SELECT invoice_number,transaction_type,description,total_amount,created_at FROM transaction where email = ? order by created_at desc limit ? offset ? `,[req.email,limit,offset]); 
 
         }else{
-            transaction = await connection.promise().query(`SELECT invoice_number,transaction_type,description,total_amount,created_at FROM transaction where email = ? order by created_at desc`,[req.email]); 
+            trans = await connection.promise().query(`SELECT invoice_number,transaction_type,description,total_amount,created_at FROM transaction where email = ? order by created_at desc`,[req.email]); 
         }
 
 
