@@ -1,11 +1,13 @@
 import mysql from 'mysql2';
  
 const connection = mysql.createConnection({
-   host:        'localhost',
+   host:        'autorack.proxy.rlwy.net',
    user:        'root',
-   password:    '',
-   database:    'nutech-backend-nodejs-iqrahabibi'
+   password:    'MGcVDpPRIgBqydBdilBUFklqJdcfIqqY',
+   database:    'nutech-backend-nodejs-iqrahabibi',
+   port: 46758
  });
+//  mysql://root:MGcVDpPRIgBqydBdilBUFklqJdcfIqqY@autorack.proxy.rlwy.net:46758/railway
 
 connection.connect(function(error){
    if(!!error){
