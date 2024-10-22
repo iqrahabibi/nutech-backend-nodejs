@@ -299,25 +299,4 @@ export const uploadImageProfile = async(req, res) => {
             console.log(error.message);
         }
     })
-
-    // try {
-    //     await connection.promise().query(`UPDATE users set first_name = ?, last_name = ? where email = ?`,
-    //         [
-    //             req.body.first_name,
-    //             req.body.last_name,
-    //             req.email
-    //         ]
-    //     )
-
-    //     const user = await connection.promise().query(`SELECT email,first_name,last_name,profile_image FROM users where email = ?`, [req.email]); 
-
-    //     res.status(200).json({
-    //         status : 0,
-    //         message : "Update Pofile berhasil",
-    //         data : user[0][0]
-    //     })
-
-    // } catch (error) {
-    //     res.json({msg:error});
-    // }
 }

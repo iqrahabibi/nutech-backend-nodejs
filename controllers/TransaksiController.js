@@ -55,7 +55,7 @@ export const transaksi = async(req, res) => {
         })
 
     } catch (error) {
-        res.json({msg:'ADSF'});
+        res.json({msg:error});
     }
 }
 
